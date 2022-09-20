@@ -4,10 +4,7 @@ import { FixedSizeList as List } from "react-window";
 
 const Main = (storyDetails) => {
   const [loading, setLoading] = React.useState(true);
-  console.log("!!", storyDetails)
-
   const ArticleRow = React.useCallback(({ data, index, style }) => {
-      console.log("!!!")
     const story = data[index] || {};
     console.log(story)
     return (

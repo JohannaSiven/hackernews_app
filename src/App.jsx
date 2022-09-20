@@ -64,7 +64,7 @@ const App = () => {
     const story = data[index] || {};
     return (
       <div style={style}>
-        <ArticlePreview key={story.id} story={story} />
+        <ArticlePreview key={story.id} story={story} setActiveView={setActiveView} />
       </div>
     );
   }, []);
@@ -77,17 +77,16 @@ const App = () => {
   //   };
 
   //   const [ref, inView] = useInView();
-
   return (
     <>
       <GlobalStyles />
       <Header />
       <Container>
-        {activeView === "main" ? (
+        {activeView === "main" && (
           <>
             <h2>Top stories</h2>
-            {loading && <p>...loading</p>}
-            {storyDetails.length && (
+            {loading && <p>...loading...</p>}
+            {storyDetails.length ? (
               <List
                 innerElementType="ul"
                 itemData={storyDetails}
@@ -98,11 +97,15 @@ const App = () => {
               >
                 {ArticleRow}
               </List>
-            )}
+            ) : null}
+          </>
+        )}
+        {/* {activeView === "main" && <Main storyDetails={storyDetails} />} */}
+        {activeView !== "main" && storyDetails.length ? (
+          <>
+              <Article story={storyDetails.filter(s => s.id === activeView)} activeView={activeView} setActiveView={setActiveView}/>
           </>
         ) : null}
-        {/* {activeView === "main" && <Main storyDetails={storyDetails} />} */}
-        {activeView === "article" && <Article />}
       </Container>
     </>
   );

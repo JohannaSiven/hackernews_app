@@ -16,8 +16,29 @@ body {
     margin: 0;
 }
 
+a {
+    text-decoration: none;
+    font-size: 0.8em;
+    color: rgb(0, 37, 46, 0.6);
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
 p {
     opacity: 0.6;
     line-height: 0.5;
+    font-size: 0.8em;
 }
 `;

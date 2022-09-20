@@ -1,30 +1,33 @@
 import React from "react";
 import { StyledArticle } from "./styled/Article.styled";
 
-const Article = (storyDetails, currentView) => {
-    console.log(storyDetails)
-    console.log(currentView)
-//   const story = storyDetails.activeView;
-//   const timeAgo = new Date(story.time * 1000).toLocaleDateString("en-GB", {
-//     hour: "numeric",
-//     minute: "numeric",
-//   });
-//   const linkText = story.url ? `Read on ${new URL(story.url).host}` : ``;
-//   const textPreview = story.text ? `${story.text.substring(0, 150)}...` : ``;
+const Article = ({ story, setActiveView }) => {
+  const handleClick = () => {
+    setActiveView("main");
+  };
+  const timeAgo = new Date(story[0].time * 1000).toLocaleDateString("en-GB", {
+    hour: "numeric",
+    minute: "numeric",
+  });
+  const linkText = story[0].url ? `Read on ${new URL(story[0].url).host}` : ``;
+  const textPreview = story[0].text ? `${story[0].text.substring(0, 250)}` : ``;
+
   return (
-    <div>
-      {/* <a>back</a>
-      <div id="articleContainer">
-        <div id="by">by: {story.by}</div>
-        <h3>{story.title}</h3>
-        <div id="timestamp">posted at: {timeAgo}</div>
-        <div id="type">{story.type}</div>
+    <StyledArticle>
+      <button onClick={handleClick}>Back to overview</button>
+      <div>
+        <div id="type">{story[0].type}</div>
+        <h3>{story[0].title}</h3>
+        <div>
+          <p>by: {story[0].by}</p>
+          <p>posted at: {timeAgo}</p>
+        </div>
         <div id="text">{textPreview}</div>
         <div id="link">
-          <a href={story.url}>{linkText}</a>
+          <a href={story[0].url}>{linkText}</a>
         </div>
-      </div> */}
-    </div>
+      </div>
+    </StyledArticle>
   );
 };
 
