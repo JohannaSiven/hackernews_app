@@ -13,20 +13,19 @@ You will also see any lint errors in the console.
 Run `npm run build` to build the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
+The build is minified and the filenames include the hashes.
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ### About
 
-React-app displaying the Top20 articles from HackerNews. The user can browse the list of articles, see more details per article by clicking on the titles, and navigate to the article host site to read the entire post. Styled with styled-components.
+React-app displaying the Top20 articles from HackerNews. The user can browse the list of articles, see more details per article by clicking on the titles, and navigate to the article host site to read the entire post. Styled with styled-components (follows responsive design).
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 #### Pending work packages / features:
 
 - [ ] infinite scroll
-- [ ] improve responsiveness
 - [ ] accessibility review
 - [ ] unit tests
 - [ ] deployment

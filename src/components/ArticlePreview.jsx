@@ -2,11 +2,13 @@
 import { StyledPreview } from "./styled/ArticlePreview.styled";
 
 //utils
-import { timeAgo } from "../utils/helpers";
+import { getTimeAgo } from "../utils/helpers";
 
 const ArticlePreview = ({ story, setActiveView }) => {
-  const timestamp = timeAgo(story.time);
-  const linkText = story.url ? `Read on ${new URL(story.url).host}` : ``;
+  const timestamp = getTimeAgo(story.time);
+
+  const hasLinkToArticle = !!story.url;
+  const linkText = hasLinkToArticle ? `Read on ${new URL(story.url).host}` : ``;
 
   const handleClick = () => {
     setActiveView(story.id);

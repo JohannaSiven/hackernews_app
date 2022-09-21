@@ -2,15 +2,24 @@
 import { StyledArticle } from "./styled/Article.styled";
 
 //utils
-import { timeAgo } from "../utils/helpers";
+import { getTimeAgo, getPreviewText } from "../utils/helpers";
 
 const Article = ({ story, setActiveView }) => {
   const handleClick = () => {
     setActiveView("overview");
   };
-  const timestamp = timeAgo(story[0].time);
-  const linkText = story[0].url ? `Read on ${new URL(story[0].url).host}` : ``;
-  const textPreview = story[0].text ? `${story[0].text.substring(0, 250)}` : ``;
+
+  const timestamp = getTimeAgo(story[0].time);
+
+  // url and text not always populated
+  // if no link to article --> show full text
+  const hasLinkToArticle = !!story[0].url;
+  const hasPreviewText = !!story[0].text;
+  const textPreview =
+    hasPreviewText && getPreviewText(hasLinkToArticle, story[0].text);
+  const linkText = hasLinkToArticle
+    ? `Read on ${new URL(story[0].url).host}`
+    : ``;
 
   return (
     <StyledArticle>
