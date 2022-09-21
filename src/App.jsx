@@ -1,7 +1,5 @@
 //react
 import * as React from "react";
-// import InfiniteLoader from "react-window-infinite-loader";
-// import { useInView } from "react-intersection-observer";
 
 //components
 import Header from "./components/Header";
@@ -13,14 +11,12 @@ import { GlobalStyles } from "./components/styled/Global";
 import { Container } from "./components/styled/Container.styled";
 
 //utils
-import { PAGE_NUMBER, LIMIT } from "./utils/constants";
+import { LIMIT } from "./utils/constants";
 
 const App = () => {
   const [storyDetails, setStoryDetails] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
   const [activeView, setActiveView] = React.useState("overview");
-  //   const [page, setPage] = React.useState(PAGE_NUMBER);
-  //   const [ref, inView] = useInView();
 
   const fetchStoryDetails = async (id) => {
     const storyEndpoint = `https://hacker-news.firebaseio.com/v0/item/${id}.json `;
@@ -62,13 +58,6 @@ const App = () => {
   React.useEffect(() => {
     fetchTopStoryIds();
   }, []);
-
-  //   const InfiniteScroll = ({ listItems, lastRowHandler }) => {
-  //     const [lastRowRef, lastRowInView] = useInView();
-  //     React.useEffect(() => {
-  //       lastRowInView && lastRowHandler();
-  //     }, [lastRowInView]);
-  //   };
 
   return (
     <>
