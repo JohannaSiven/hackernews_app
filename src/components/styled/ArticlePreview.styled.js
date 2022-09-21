@@ -7,9 +7,12 @@ export const StyledPreview = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   border-bottom: 1px gray solid;
+  padding: 20px;
 
   h3 {
     margin-bottom: 0;
+    padding-right: 10px;
+    width: 100vw;
   }
 
   h3 > a {
@@ -19,6 +22,8 @@ export const StyledPreview = styled.div`
   li {
     list-style: none;
     margin: 20px 0px;
+    display: flex;
+    flex-direction: column;
   }
 
   #row {
@@ -35,6 +40,5 @@ export const StyledPreview = styled.div`
   #by {
     color: rgb(244, 126, 32);
     font-weight: 600;
-    padding-bottom: 20px;
   }
 `;

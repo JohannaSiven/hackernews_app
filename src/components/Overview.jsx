@@ -6,8 +6,7 @@ import { FixedSizeList as List } from "react-window";
 import ArticlePreview from "./ArticlePreview";
 
 const Overview = ({ storyDetails, loading, setActiveView }) => {
-  
-    const ArticleRow = React.useCallback(({ data, index, style }) => {
+  const ArticleRow = React.useCallback(({ data, index, style }) => {
     const story = data[index] || {};
     return (
       <div style={style}>
@@ -23,15 +22,20 @@ const Overview = ({ storyDetails, loading, setActiveView }) => {
   return (
     <>
       <h2>Top stories</h2>
-      {loading && <p>...loading...</p>}
+      {loading && (
+        <div id="loading">
+          <p>...loading...</p>
+        </div>
+      )}
       {storyDetails.length ? (
         <List
           innerElementType="ul"
           itemData={storyDetails}
           itemCount={storyDetails.length}
           height={1000}
-          width={1000}
-          itemSize={200}
+          width={"100vw"}
+          itemSize={250}
+          padding-right={8}
         >
           {ArticleRow}
         </List>

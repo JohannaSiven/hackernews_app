@@ -15,7 +15,7 @@ const Article = ({ story, setActiveView }) => {
   return (
     <StyledArticle>
       <button onClick={handleClick}>Back to overview</button>
-      <div>
+      <div id="details">
         <div id="type">{story[0].type}</div>
         <h3>{story[0].title}</h3>
         <div>

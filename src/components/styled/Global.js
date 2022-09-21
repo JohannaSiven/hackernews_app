@@ -6,7 +6,7 @@ export const GlobalStyles = createGlobalStyle`
 
 * {
     box-sizing: border-box;
-    margin-top: 0;
+    overflow-x: hidden;
 }
 
 body {
@@ -14,6 +14,11 @@ body {
     font-family: 'PT Sans', sans-serif;
     font-size: 1.15em;
     margin: 0;
+    position: relative;
+}
+
+#loading {
+    padding-left: 20px;
 }
 
 a {
@@ -34,11 +39,12 @@ button {
     font: inherit;
     cursor: pointer;
     outline: inherit;
+    text-align: left;
 }
 
 p {
     opacity: 0.6;
-    line-height: 0.5;
     font-size: 0.8em;
+    width: 100vw;
 }
 `;
