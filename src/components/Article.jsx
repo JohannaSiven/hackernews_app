@@ -1,14 +1,14 @@
-import React from "react";
+// styled components
 import { StyledArticle } from "./styled/Article.styled";
+
+//utils
+import { timeAgo } from "../utils/helpers";
 
 const Article = ({ story, setActiveView }) => {
   const handleClick = () => {
-    setActiveView("main");
+    setActiveView("overview");
   };
-  const timeAgo = new Date(story[0].time * 1000).toLocaleDateString("en-GB", {
-    hour: "numeric",
-    minute: "numeric",
-  });
+  const timestamp = timeAgo(story[0].time);
   const linkText = story[0].url ? `Read on ${new URL(story[0].url).host}` : ``;
   const textPreview = story[0].text ? `${story[0].text.substring(0, 250)}` : ``;
 
@@ -20,7 +20,7 @@ const Article = ({ story, setActiveView }) => {
         <h3>{story[0].title}</h3>
         <div>
           <p>by: {story[0].by}</p>
-          <p>posted at: {timeAgo}</p>
+          <p>posted at: {timestamp}</p>
         </div>
         <div id="text">{textPreview}</div>
         <div id="link">

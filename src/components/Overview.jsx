@@ -1,24 +1,27 @@
-import React from "react";
-import ArticlePreview from "./ArticlePreview";
+//react
+import * as React from "react";
 import { FixedSizeList as List } from "react-window";
 
-const Main = (storyDetails) => {
-  const [loading, setLoading] = React.useState(true);
-  const ArticleRow = React.useCallback(({ data, index, style }) => {
+//components
+import ArticlePreview from "./ArticlePreview";
+
+const Overview = ({ storyDetails, loading, setActiveView }) => {
+  
+    const ArticleRow = React.useCallback(({ data, index, style }) => {
     const story = data[index] || {};
-    console.log(story)
     return (
       <div style={style}>
         <ArticlePreview
           key={story.id}
           story={story}
+          setActiveView={setActiveView}
         />
       </div>
     );
   }, []);
 
   return (
-    <div>
+    <>
       <h2>Top stories</h2>
       {loading && <p>...loading...</p>}
       {storyDetails.length ? (
@@ -33,8 +36,8 @@ const Main = (storyDetails) => {
           {ArticleRow}
         </List>
       ) : null}
-    </div>
+    </>
   );
 };
 
-export default Main;
+export default Overview;

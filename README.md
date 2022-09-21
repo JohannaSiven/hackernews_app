@@ -2,7 +2,7 @@
 
 ### Local development
 
-Run `npm start` to run the app in the development mode. 
+Run `npm start` to run the app in the development mode.
 View the app in the browser on [http://localhost:3000](http://localhost:3000).
 
 The page will reload if you make edits.\
@@ -25,7 +25,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 #### Pending work packages / features:
 
-- [ ] unit tests
 - [ ] infinite scroll
 - [ ] improve responsiveness
 - [ ] accessibility review
+- [ ] unit tests
+- [ ] deployment

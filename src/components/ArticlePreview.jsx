@@ -1,12 +1,11 @@
-import * as React from "react";
+//styled components
 import { StyledPreview } from "./styled/ArticlePreview.styled";
 
-const ArticlePreview = ({ story, setActiveView }) => {
-  const timeAgo = new Date(story.time * 1000).toLocaleDateString("en-GB", {
-    hour: "numeric",
-    minute: "numeric",
-  });
+//utils
+import { timeAgo } from "../utils/helpers";
 
+const ArticlePreview = ({ story, setActiveView }) => {
+  const timestamp = timeAgo(story.time);
   const linkText = story.url ? `Read on ${new URL(story.url).host}` : ``;
 
   const handleClick = () => {
@@ -20,7 +19,7 @@ const ArticlePreview = ({ story, setActiveView }) => {
         <h3>
           <button onClick={handleClick}>{story.title}</button>
         </h3>
-        <div id="timestamp">posted at: {timeAgo}</div>
+        <div id="timestamp">posted at: {timestamp}</div>
         <div id="link">
           <a href={story.url}>{linkText}</a>
         </div>
